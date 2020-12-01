@@ -1,14 +1,14 @@
 import React from 'react';
-
+import withAuthUser from 'hocs/withAuthUser';
 /**
  * Quizzes admin page
  */
 const Admin = () => {
   return (
     <div>
-      <p>Online Quiz platform</p>
+      <h1>Quiz Admin</h1>
     </div>
   );
 };
 
-export default Admin;
+export default withAuthUser(Admin);

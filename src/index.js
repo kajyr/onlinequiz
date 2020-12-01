@@ -15,6 +15,9 @@ import 'firebase/analytics';
 import 'firebase/auth';
 import 'firebase/firestore';
 
+import FirebaseAuth from 'atoms/FirebaseAuth';
+import ProtectedRoute from 'atoms/ProtectedRoute';
+
 import Admin from 'pages/Admin';
 import FourOhFour from 'pages/FourOhFour';
 import Landing from 'pages/Landing';
@@ -27,14 +30,16 @@ firebase.initializeApp(FIREBASE_CONFIG);
 render(
   <>
     <BrowserRouter>
-      <Switch>
-        <Route path="/error" render={() => <div>Something went wrong :(</div>} />
-        <Route path="/404" component={FourOhFour} />
-        <Route path="/admin" component={Admin} />
-        <Route path="/:quiz/manage" render={(props) => <QuizControl {...props} />} />
-        <Route path="/:quiz" render={(props) => <Quiz {...props} />} />
-        <Route path="/" component={Landing} />
-      </Switch>
+      <FirebaseAuth>
+        <Switch>
+          <Route path="/error" render={() => <div>Something went wrong :(</div>} />
+          <Route path="/404" component={FourOhFour} />
+          <ProtectedRoute path="/admin" component={Admin} redirectTo="/" />
+          <Route path="/:quiz/manage" render={(props) => <QuizControl {...props} />} />
+          <Route path="/:quiz" render={(props) => <Quiz {...props} />} />
+          <Route path="/" component={Landing} />
+        </Switch>
+      </FirebaseAuth>
     </BrowserRouter>
     <NotificationContainer />
   </>,
