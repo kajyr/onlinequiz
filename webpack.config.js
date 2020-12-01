@@ -64,6 +64,7 @@ module.exports = {
   },
   output: {
     filename: '[name]-bundle.js',
+    publicPath: '/',
     path: path.resolve(__dirname, 'public'),
   },
   devtool: isProduction ? false : 'source-map',

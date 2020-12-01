@@ -1,5 +1,5 @@
-import React from 'react';
-import firebase from 'firebase/app';
+import React, { useState } from 'react';
+import firebase from 'services/firebase';
 import useForm from 'hooks/useForm';
 import UserFacingPage from 'templates/UserFacingPage';
 import { useHistory } from 'react-router-dom';
@@ -12,7 +12,8 @@ import Button from '@material-ui/core/Button';
  */
 const Landing = () => {
   const history = useHistory();
-  const { handleSubmit, handleInputChange } = useForm({}, (inputs) => {
+  const [quizId, setQuizId] = useState('');
+  const { inputs, handleSubmit, handleInputChange } = useForm({}, (inputs) => {
     const { email, password } = inputs;
     firebase
       .auth()
@@ -30,12 +31,25 @@ const Landing = () => {
       });
   });
 
-  const handleSignIn = () => {};
   return (
     <UserFacingPage>
       <h1>Online Quiz platform</h1>
 
-      <div>Accedi a un quiz</div>
+      <div>
+        Accedi a un quiz:
+        <TextField
+          name="quizId"
+          label="Quiz id:"
+          type="text"
+          value={quizId}
+          onChange={(e) => setQuizId(e.target.value)}
+        />
+        {quizId.trim() !== '' && (
+          <Button color="primary" href={`/${quizId}`}>
+            Apri
+          </Button>
+        )}
+      </div>
 
       <div>
         oppure fai login:
@@ -46,6 +60,7 @@ const Landing = () => {
               label="Email"
               type="email"
               size="small"
+              value={inputs.email || ''}
               onChange={handleInputChange}
               required
             />
@@ -54,6 +69,7 @@ const Landing = () => {
               label="Password"
               type="password"
               size="small"
+              value={inputs.password || ''}
               onChange={handleInputChange}
               required
             />
