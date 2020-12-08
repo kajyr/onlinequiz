@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
 import firebase from '../services/firebase';
 
-const useCollection = (name) => {
+const getCollection = (db, name, where) =>
+  !where ? db.collection(name) : db.collection(name).where(...where);
+
+const useCollection = (name, where) => {
   const db = firebase.firestore();
   const [data, set] = useState([]);
 
   useEffect(() => {
-    const unsubscribe = db.collection(name).onSnapshot((snapshot) => {
+    const unsubscribe = getCollection(db, name, where).onSnapshot((snapshot) => {
       const data = [];
       snapshot.forEach((doc) => {
         data.push({ id: doc.id, ...doc.data() });

@@ -42,13 +42,14 @@ const AddQuizForm = ({ onAdd }) => {
   });
   return (
     <>
-      <Button onClick={handleClickOpen}>Aggiungi</Button>
+      <Button color="primary" onClick={handleClickOpen}>
+        Aggiungi
+      </Button>
       <Dialog open={isOpen} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Aggiungi un nuovo quiz</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Per aggiungere un nuovo quiz specifica il titolo del quiz e la parola chiave per
-            l'accesso
+            Per aggiungere un nuovo quiz specifica il titolo del quiz.
           </DialogContentText>
           <form
             id="add-quiz-form"
@@ -62,14 +63,6 @@ const AddQuizForm = ({ onAdd }) => {
               type="text"
               fullWidth
               value={inputs.title || ''}
-              onChange={handleInputChange}
-            />
-            <TextField
-              name="key"
-              label="Chiave di accesso"
-              type="text"
-              fullWidth
-              value={inputs.key || ''}
               onChange={handleInputChange}
             />
             <Button>Aggiungi</Button>

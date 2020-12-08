@@ -36,16 +36,14 @@ const Admin = () => {
             <TableHead>
               <TableRow>
                 <TableCell>Titolo</TableCell>
-                <TableCell>Chiave di accesso</TableCell>
                 <TableCell align="right">Azioni</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {rows.map((quiz) => (
                 <TableRow key={quiz.id}>
-                  <TableCell scope="row">{quiz.title}</TableCell>
                   <TableCell scope="row">
-                    <Link href={`/admin/${quiz.id}`}>{quiz.key}</Link>
+                    <Link href={`/admin/${quiz.id}`}>{quiz.title}</Link>
                   </TableCell>
                   <TableCell align="right">
                     <Button

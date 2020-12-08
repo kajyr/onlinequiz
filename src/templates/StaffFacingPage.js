@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  body: {
+    paddingTop: '1rem',
+  },
 }));
 
 const StaffFacingPage = ({ title, backLink, children }) => {
@@ -43,7 +46,7 @@ const StaffFacingPage = ({ title, backLink, children }) => {
           {/*           <Button color="inherit">Login</Button> */}
         </Toolbar>
       </AppBar>
-      <Container>{children}</Container>
+      <Container className={classes.body}>{children}</Container>
     </div>
   );
 };

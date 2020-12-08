@@ -2,23 +2,20 @@ import React from 'react';
 
 import useDoc from 'hooks/useDoc';
 
-import Button from '@material-ui/core/Button';
-
 import StaffFacingPage from 'templates/StaffFacingPage';
+import QuizControlForm from './Form';
+import Sessions from './Sessions';
+
+import Panel, { PanelsRow } from 'atoms/Panel';
 
 /**
  * Quiz control panel
  */
 const QuizControl = ({ match }) => {
   const { id } = match.params;
-
   const { data, update } = useDoc('quizzes', id);
 
   console.log(data);
-
-  const add = () => {
-    update({ questions: (data.questions || []).concat({ text: ' ' }) });
-  };
 
   if (!data) {
     // uh..
@@ -29,17 +26,17 @@ const QuizControl = ({ match }) => {
 
   return (
     <StaffFacingPage title={`Quiz control: ${data.title}`} backLink="/admin">
-      Elenco domande:
-      <ol>
-        {questions.map((q, idx) => (
-          <li key={idx}>{q.text}</li>
-        ))}
-      </ol>
-      <div>
-        <Button color="primary" variant="contained" onClick={add}>
-          Aggiungi domanda
-        </Button>
-      </div>
+      <PanelsRow>
+        <Panel>control</Panel>
+
+        <Panel header="Sessioni">
+          <Sessions quizId={id} />
+        </Panel>
+      </PanelsRow>
+
+      <Panel>
+        <QuizControlForm questions={questions} update={update} />
+      </Panel>
     </StaffFacingPage>
   );
 };
