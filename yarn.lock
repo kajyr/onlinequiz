@@ -5640,6 +5640,11 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
 
+kj-sc-basics@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/kj-sc-basics/-/kj-sc-basics-0.1.0.tgz#90aa9817d5d1090e6519fcfff3781d71f9177d44"
+  integrity sha512-D6RIqx0gWvKtMpeW2G/oKxtkcOcd0i7++sFjGdDQwS8YgbXi4+nMqjwjDVyLWLIwccu/jr5PFNlln2L3u/guGA==
+
 kleur@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"

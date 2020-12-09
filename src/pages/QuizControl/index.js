@@ -6,7 +6,7 @@ import StaffFacingPage from 'templates/StaffFacingPage';
 import QuizControlForm from './Form';
 import Sessions from './Sessions';
 
-import Panel, { PanelsRow } from 'atoms/Panel';
+import { Panel, PanelsRow } from 'kj-sc-basics';
 
 /**
  * Quiz control panel
