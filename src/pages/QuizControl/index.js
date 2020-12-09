@@ -29,7 +29,7 @@ const QuizControl = ({ match }) => {
       <PanelsRow>
         <Panel>control</Panel>
 
-        <Panel header="Sessioni">
+        <Panel>
           <Sessions quizId={id} />
         </Panel>
       </PanelsRow>
