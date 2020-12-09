@@ -7,6 +7,9 @@ const useDoc = (collection, docId) => {
   const [data, set] = useState();
 
   useEffect(() => {
+    if (!docId) {
+      return;
+    }
     document.current = db.collection(collection).doc(docId);
     const unsubscribe = document.current.onSnapshot((doc) => {
       set(doc.data());

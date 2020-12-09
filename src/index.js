@@ -32,7 +32,7 @@ render(
           <Route path="/404" component={FourOhFour} />
           <ProtectedRoute path="/admin/:id" component={QuizControl} redirectTo="/" />
           <ProtectedRoute path="/admin" component={Admin} redirectTo="/" />
-          <Route path="/:quiz" render={(props) => <Player {...props} />} />
+          <Route path="/:session/:user?" render={(props) => <Player {...props} />} />
           <Route path="/" component={Landing} />
         </Switch>
       </FirebaseAuth>
