@@ -11,7 +11,7 @@ import ProtectedRoute from 'atoms/ProtectedRoute';
 import Admin from 'pages/Admin';
 import FourOhFour from 'pages/FourOhFour';
 import Landing from 'pages/Landing';
-import Player from 'pages/Player';
+import Quiz from 'pages/Quiz';
 import QuizControl from 'pages/QuizControl';
 
 const GlobalStyle = createGlobalStyle`
@@ -32,7 +32,7 @@ render(
           <Route path="/404" component={FourOhFour} />
           <ProtectedRoute path="/admin/:id" component={QuizControl} redirectTo="/" />
           <ProtectedRoute path="/admin" component={Admin} redirectTo="/" />
-          <Route path="/:session/:user?" render={(props) => <Player {...props} />} />
+          <Route path="/:session/:user?" render={(props) => <Quiz {...props} />} />
           <Route path="/" component={Landing} />
         </Switch>
       </FirebaseAuth>

@@ -33,7 +33,7 @@ const PlayerRouter = ({ match }) => {
         <Route
           path="/:session/:userName"
           render={(props) => (
-            <Player {...props} quizData={quizData} session={sessionData} update={update} />
+            <Player {...props} quiz={quizData} session={sessionData} update={update} />
           )}
         />
         <Route path="/:session" render={(props) => <UserAuth {...props} sessionId={session} />} />

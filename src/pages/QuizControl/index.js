@@ -15,7 +15,7 @@ const QuizControl = ({ match }) => {
   const { id } = match.params;
   const { data, update } = useDoc('quizzes', id);
 
-  console.log(data);
+  console.log('quiz', data);
 
   if (!data) {
     // uh..
@@ -26,13 +26,9 @@ const QuizControl = ({ match }) => {
 
   return (
     <StaffFacingPage title={`Quiz control: ${data.title}`} backLink="/admin">
-      <PanelsRow>
-        <Panel>control</Panel>
-
-        <Panel>
-          <Sessions quizId={id} />
-        </Panel>
-      </PanelsRow>
+      <Panel>
+        <Sessions quizId={id} questionCount={3} />
+      </Panel>
 
       <Panel>
         <QuizControlForm questions={questions} update={update} />

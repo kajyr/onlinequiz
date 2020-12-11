@@ -21,8 +21,9 @@ const useCollection = (name, where) => {
 
   const add = (data) => db.collection(name).add(data);
   const remove = (id) => db.collection(name).doc(id).delete();
+  const update = (id, data) => db.collection(name).doc(id).update(data);
 
-  return { data, add, remove };
+  return { data, add, remove, update };
 };
 
 export default useCollection;
